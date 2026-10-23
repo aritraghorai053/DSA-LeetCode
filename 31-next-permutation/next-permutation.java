@@ -16,13 +16,16 @@ class Solution {
 
         for (int i = n-1; i>index; i--){
             if(nums[i]>nums[index]){
-                swap(nums, i, index);
+                int temp = nums[i];
+                nums[i] = nums[index];
+                nums[index] = temp;
                 break;
             }
         }
         reverse(nums, index+1, n-1);
-        
+        // return nums;
     }
+
     public void swap(int[] nums, int i, int j){
         int temp = nums[i];
         nums[i] = nums[j];
@@ -31,9 +34,11 @@ class Solution {
 
     public void reverse(int[] nums, int left, int right){
         while(left < right){
-            swap(nums,left,right);
-            left++;
-            right--;
+            int temp = nums[left];
+            nums[left] = nums[right];
+            nums[right] = temp;
+            left ++;
+            right --;
         }
     }
 }
